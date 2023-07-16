@@ -15,21 +15,7 @@ import com.vaadin.flow.router.Route;
 @Route("main")
 public class MainView extends VerticalLayout {
 
-    private int textValue = 0;
-
     public MainView() {
-        TextField ftextField = new TextField();
-        ftextField.setValue(String.valueOf(textValue));
-        Button faddButton = new Button("Change");
-        ftextField.addValueChangeListener(change->{
-            textValue = Integer.parseInt(ftextField.getValue());
-        });
-        faddButton.addClickListener(click -> {
-            textValue++;
-            ftextField.setValue(String.valueOf(textValue));
-        });
-        faddButton.addClickShortcut(Key.ENTER);
-
         Binder<Item> binder = new Binder<>(Item.class);
 
         TextField textField = new TextField();
@@ -52,7 +38,6 @@ public class MainView extends VerticalLayout {
 
         textField.addValueChangeListener(change->{
             if (binder.validate().isOk()) {
-//                item.setValue(Integer.parseInt(textField.getValue()));
                 try {
                     binder.writeBean(item);
                 } catch (ValidationException e) {
@@ -63,10 +48,6 @@ public class MainView extends VerticalLayout {
 
         add(
                 new H1("Тестовое задание"),
-                new HorizontalLayout(
-                        ftextField,
-                        faddButton
-                ),
                 new HorizontalLayout(
                         textField,
                         addButton
