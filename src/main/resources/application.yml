@@ -1,0 +1,28 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /test
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_ON_EXIT=FALSE;INIT=CREATE SCHEMA IF NOT EXISTS catalog_sh
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    database: default
+    generate-ddl: true    
+  h2:
+    console:
+      enabled: true
+
+hibernate.dialect: org.hibernate.dialect.H2Dialect
+hibernate.show_sql: true
+hibernate.hbm2ddl.auto: create-drop
+
+logging.level.com.alex.catalog: DEBUG
+
