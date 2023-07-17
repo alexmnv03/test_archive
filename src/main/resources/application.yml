@@ -24,5 +24,5 @@ hibernate.dialect: org.hibernate.dialect.H2Dialect
 hibernate.show_sql: true
 hibernate.hbm2ddl.auto: create-drop
 
-logging.level.com.alex.catalog: DEBUG
+#logging.level.com.alex.catalog: DEBUG
 

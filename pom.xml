@@ -18,6 +18,8 @@
 		<vaadin.version>24.1.2</vaadin.version>
     <h2.version>1.4.200</h2.version>
     <lombok.version>1.18.22</lombok.version>
+    <slf4j.version>2.0.6</slf4j.version>
+    <logback.version>1.4.7</logback.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -45,6 +47,17 @@
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
       <version>${h2.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>${logback.version}</version>
     </dependency>
 
 	</dependencies>
