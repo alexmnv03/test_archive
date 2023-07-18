@@ -1,7 +1,6 @@
 package com.example.test;
 
 import com.example.test.model.Item;
-import com.example.test.service.Impl.ItemServiceImpl;
 import com.example.test.service.ItemService;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
@@ -16,7 +15,6 @@ import com.vaadin.flow.data.converter.StringToIntegerConverter;
 import com.vaadin.flow.router.Route;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -25,7 +23,6 @@ public class MainView extends VerticalLayout {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MainView.class);
 
-//    @Autowired
     private final ItemService itemService;
     private final Grid<Item> grid;
 
@@ -35,7 +32,7 @@ public class MainView extends VerticalLayout {
 
         TextField textField = new TextField();
         Button addButton = new Button("Change");
-        // Для просмотра содежимого БД
+
         Button readButton = new Button("read");
         this.grid = new Grid<>(Item.class);
         grid.setColumns("id", "value");
@@ -52,9 +49,7 @@ public class MainView extends VerticalLayout {
         addButton.addClickListener(e -> {
             if (binder.validate().isOk()) {
                 item.setValue(item.getValue() + 1);
-//                item.setId(0L);
                 binder.readBean(item);
-//                this.itemService.create(item);
             }
         });
 
@@ -93,8 +88,6 @@ public class MainView extends VerticalLayout {
     private void updateGrid() {
         LOGGER.debug("Обновление таблицы...");
         List<Item> items = this.itemService.getAll();
-        LOGGER.info("list.size = " + items.size());
-        LOGGER.info("list. val_0 = " + items.get(0).getValue());
         grid.setItems(items);
         grid.setColumns("id", "value");
     }

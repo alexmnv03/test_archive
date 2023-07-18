@@ -9,10 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
 import java.util.List;
 
-//@Slf4j
 @RequiredArgsConstructor
 @Service
 @Transactional
@@ -20,7 +18,6 @@ public class ItemServiceImpl implements ItemService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ItemServiceImpl.class);
     private final ItemRepository itemRepository;
-
 
     @Override
     public Item create(Item object) {
